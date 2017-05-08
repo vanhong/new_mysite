@@ -16,7 +16,14 @@ Including another URLconf
 from django.conf.urls import url, include
 from django.contrib import admin
 
+from views import here, math
+from books import views
+
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^polls/', include('polls.urls', namespace="polls")),
+    url(r'^here/', here),
+    url(r'^(\d{1,2})/math/(\d{1,2})/$', math),
+    url(r'^search-form/$', views.search_form),
+    url(r'^search/$', views.search)
 ]
